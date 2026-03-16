@@ -32,6 +32,8 @@ export const LocalizedLink: FC<LocalizedLinkProps> = (props) => {
   const { localePrefix } = getPrefix(locale)
 
   const isHashOnly = typeof props.to === "string" && props.to.startsWith("#")
+  const isPathWithHash =
+    typeof props.to === "string" && props.to.includes("#") && !props.to.startsWith("#")
 
   if (isHashOnly) {
     const { to, ...rest } = props
@@ -39,6 +41,17 @@ export const LocalizedLink: FC<LocalizedLinkProps> = (props) => {
       <a
         {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         href={to}
+      />
+    )
+  }
+
+  if (isPathWithHash) {
+    const { to, ...rest } = props
+    const localizedHref = localePrefix ? `/${localePrefix}${to}` : (to as string)
+    return (
+      <a
+        {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        href={localizedHref}
       />
     )
   }

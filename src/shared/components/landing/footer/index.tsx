@@ -24,7 +24,7 @@ export const Footer = () => {
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <LocalizedLink
-                      to={link.href as To}
+                      to={link.href.value as To}
                       className={cn(
                         "text-sm text-muted-foreground",
                         "hover:text-foreground transition-colors"
@@ -44,9 +44,23 @@ export const Footer = () => {
             <span className="text-xl font-bold text-primary">{footer.companyName}</span>
           </div>
 
-          <p className="text-sm text-muted-foreground">
-            © {CURRENT_YEAR} {footer.companyName}. All rights reserved.
-          </p>
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground">
+              © {CURRENT_YEAR} {footer.companyName}. All rights reserved.
+            </p>
+            {footer.icp && (
+              <p className="text-xs text-muted-foreground mt-1">
+                <a
+                  href="https://beian.miit.gov.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  {footer.icp}
+                </a>
+              </p>
+            )}
+          </div>
 
           <Button
             variant="outline"

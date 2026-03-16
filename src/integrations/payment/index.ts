@@ -1,7 +1,9 @@
 import { getAllConfigs } from "@/shared/model/config.model"
 import type { PaymentProvider } from "@/shared/types/payment"
+import { AlipayAdapter } from "./adapters/alipay"
 import { CreemAdapter } from "./adapters/creem"
 import { StripeAdapter } from "./adapters/stripe"
+import { WechatAdapter } from "./adapters/wechat"
 import type { PaymentAdapter } from "./types"
 
 export type { PaymentAdapter } from "./types"
@@ -32,12 +34,10 @@ export async function getPaymentAdapter(provider: PaymentProvider): Promise<Paym
       throw new Error("PayPal adapter not implemented yet")
 
     case "wechat":
-      // TODO: Implement WechatAdapter
-      throw new Error("WeChat adapter not implemented yet")
+      return new WechatAdapter()
 
     case "alipay":
-      // TODO: Implement AlipayAdapter
-      throw new Error("Alipay adapter not implemented yet")
+      return new AlipayAdapter()
 
     default:
       throw new Error(`Unsupported payment provider: ${provider}`)

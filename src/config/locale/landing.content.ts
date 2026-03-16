@@ -13,7 +13,7 @@ export default {
   key: "landing",
   content: {
     banner: {
-      display: true,
+      display: false,
       text: t({
         en: "Open Sourced in 2026: Production-grade AI SaaS template available! Join our developer ecosystem today.",
         zh: "2026 年开源：生产级 AI SaaS 模板现已发布！立即加入我们的开发者生态系统。",
@@ -25,15 +25,15 @@ export default {
     },
     hero: {
       title: t({
-        en: "Vibe Any AI Startups in hours, not days",
-        zh: "VibeAny AI 加速想法落地",
+        en: "Professional Software Development Services",
+        zh: "专业软件开发服务",
       }),
       description: t({
-        en: "VibeAny is a TanStack boilerplate for building AI SaaS startups. Ship Fast with database, authentication, payment, AI, internationalization and more.",
-        zh: "VibeAny 是一个 TanStack Start 模板，用于构建 AI SaaS 创业项目。快速集成数据库、认证、支付、AI、国际化等能力。",
+        en: "Mini Programs, H5, Apps, PC Websites - One-stop software outsourcing solutions",
+        zh: "小程序、H5、App、PC 网站 - 一站式软件外包解决方案",
       }),
       announcement: {
-        show: true,
+        show: false,
         text: t({
           en: "Open Sourced in 2026: Production-grade AI SaaS template available!",
           zh: "2026 年开源：生产级 AI SaaS 模板现已发布！",
@@ -42,12 +42,12 @@ export default {
       },
       buttons: {
         start: {
-          text: t({ en: "Get Started", zh: "开始" }),
-          url: "/chat",
+          text: t({ en: "Pay Deposit", zh: "支付定金" }),
+          url: "/deposit",
         },
         docs: {
-          text: t({ en: "Learn More", zh: "了解更多" }),
-          url: "/docs",
+          text: t({ en: "Contact Us", zh: "联系我们" }),
+          url: "/contact",
         },
       },
       image: {
@@ -58,7 +58,7 @@ export default {
       },
     },
     powerBy: {
-      display: true,
+      display: false,
       title: t({ en: "Trusted by developers worldwide", zh: "被全球开发者信任" }),
       items: [
         "tanstack-start",
@@ -74,35 +74,95 @@ export default {
     },
     threeBenefits: {
       display: true,
-      title: t({ en: "Three Key Benefits", zh: "三大核心优势" }),
+      title: t({ en: "Why Choose Us", zh: "为什么选择我们" }),
       description: t({
-        en: "Discover why choose our template",
-        zh: "了解为什么选择我们的模板",
+        en: "Professional team, quality assurance, fast delivery",
+        zh: "专业团队，质量保障，快速交付",
       }),
       items: [
         {
-          title: t({ en: "Lightning Fast Startup", zh: "极速启动" }),
+          title: t({ en: "10+ Years Experience", zh: "10年+行业经验" }),
           description: t({
-            en: "Get up and running in minutes with optimized templates and infrastructure. Say goodbye to Next.js's snail-like speed.",
-            zh: "通过优化的模板和基础设施，几分钟内即可启动运行。告别 Next.js 的蜗牛速度。",
+            en: "Served 500+ enterprises with proven track record",
+            zh: "服务 500+ 企业客户，经验丰富",
+          }),
+          icon: "Award",
+        },
+        {
+          title: t({ en: "Fast Delivery", zh: "快速交付" }),
+          description: t({
+            en: "Agile development, 30% faster than industry average",
+            zh: "敏捷开发，交付速度比行业平均快 30%",
           }),
           icon: "Zap",
         },
         {
-          title: t({ en: "Environment Variable Visual Configuration", zh: "环境变量可视化配置" }),
+          title: t({ en: "Quality Assurance", zh: "质量保障" }),
           description: t({
-            en: "Built-in visual configuration system for dynamic environment variables, eliminating tedious configuration processes.",
-            zh: "内置动态环境变量的可视化配置系统，告别繁琐的配置过程。",
+            en: "Comprehensive testing, 1-year free maintenance",
+            zh: "全面测试，1 年免费维护",
           }),
           icon: "Shield",
         },
+      ],
+    },
+    services: {
+      display: true,
+      title: t({ en: "Our Services", zh: "服务项目" }),
+      description: t({
+        en: "Professional development services for all platforms",
+        zh: "全平台专业开发服务",
+      }),
+      items: [
         {
-          title: t({ en: "Complete SaaS Kit", zh: "完整的 SaaS 套件" }),
+          id: "miniprogram",
+          title: t({ en: "Mini Program Development", zh: "小程序开发" }),
           description: t({
-            en: "Authentication, i18n, payments, credits, AI, blog, docs, newsletter, dashboard, routing and SEO are all built-in — saving you weeks of development time.",
-            zh: "认证、国际化、支付、积分、AI、博客、文档、邮件订阅、仪表盘、路由和 SEO 全部内置——为你节省数周开发时间。",
+            en: "WeChat, Alipay, Douyin mini programs",
+            zh: "微信、支付宝、抖音小程序开发",
           }),
-          icon: "HeadphonesIcon",
+          icon: "Smartphone",
+          depositAmount: 5000,
+        },
+        {
+          id: "h5",
+          title: t({ en: "H5 Development", zh: "H5 开发" }),
+          description: t({
+            en: "Responsive mobile web applications",
+            zh: "响应式移动网页应用",
+          }),
+          icon: "Globe",
+          depositAmount: 5000,
+        },
+        {
+          id: "app",
+          title: t({ en: "App Development", zh: "App 开发" }),
+          description: t({
+            en: "iOS and Android native applications",
+            zh: "iOS 和 Android 原生应用",
+          }),
+          icon: "Tablet",
+          depositAmount: 5000,
+        },
+        {
+          id: "pc",
+          title: t({ en: "PC Website Development", zh: "PC 网站开发" }),
+          description: t({
+            en: "Enterprise websites and management systems",
+            zh: "企业官网和管理系统",
+          }),
+          icon: "Monitor",
+          depositAmount: 5000,
+        },
+        {
+          id: "consulting",
+          title: t({ en: "Technical Consulting", zh: "技术咨询服务" }),
+          description: t({
+            en: "Architecture design and technical solutions",
+            zh: "架构设计和技术方案咨询",
+          }),
+          icon: "Lightbulb",
+          depositAmount: 5000,
         },
       ],
     },
@@ -599,114 +659,81 @@ export default {
       }),
       items: [
         {
-          question: t({ en: "What is VibeAny?", zh: "什么是 VibeAny？" }),
+          question: t({ en: "What is the deposit for?", zh: "定金用途是什么？" }),
           answer: t({
-            en: "VibeAny is a platform for boosting any website.",
-            zh: "VibeAny 是一个用于提升任何网站的平台。",
+            en: "The 5,000 CNY deposit secures your project slot and covers initial requirements analysis. It will be deducted from the final payment.",
+            zh: "5000 元定金用于锁定项目档期和需求分析，最终会从总价中扣除。",
           }),
         },
         {
-          question: t({ en: "What is VibeAny?", zh: "什么是 VibeAny？" }),
+          question: t({ en: "How long does development take?", zh: "开发周期多久？" }),
           answer: t({
-            en: "VibeAny is a platform for boosting any website.",
-            zh: "VibeAny 是一个用于提升任何网站的平台。",
+            en: "Typical projects: Mini Program 2-4 weeks, H5 1-3 weeks, App 2-6 months, PC website 2-8 weeks. Exact timeline depends on requirements.",
+            zh: "一般项目：小程序 2-4 周，H5 1-3 周，App 2-6 个月，PC 网站 2-8 周。具体根据需求而定。",
+          }),
+        },
+        {
+          question: t({ en: "Do you provide maintenance?", zh: "提供维护服务吗？" }),
+          answer: t({
+            en: "Yes, we provide 1 year of free maintenance including bug fixes and minor updates. Extended maintenance plans are available.",
+            zh: "是的，我们提供 1 年免费维护，包括 Bug 修复和小版本更新。可选购延保服务。",
           }),
         },
       ],
     },
     cta: {
       display: true,
-      title: t({ en: "Start Building", zh: "开始构建" }),
+      title: t({ en: "Start Your Project", zh: "开始您的项目" }),
       description: t({
-        en: "Start building your next great project today.",
-        zh: "立即开始，构建你的下一个伟大项目。",
+        en: "Pay 5,000 CNY deposit to lock your project slot. Our team will contact you within 24 hours.",
+        zh: "支付 5000 元定金锁定项目档期，我们的团队将在 24 小时内联系您。",
       }),
-      primaryButtonText: t({ en: "Get Started", zh: "立即开始" }),
-      primaryButtonHref: "/",
-      secondaryButtonText: t({ en: "Book Demo", zh: "预约演示" }),
-      secondaryButtonHref: "/",
+      primaryButtonText: t({ en: "Pay Deposit", zh: "支付定金" }),
+      primaryButtonHref: "/deposit",
+      secondaryButtonText: t({ en: "Contact Us", zh: "联系我们" }),
+      secondaryButtonHref: "/contact",
     },
     header: {
       display: true,
       items: [
         {
-          label: t({ en: "Documentation", zh: "文档" }),
-          href: "/docs",
-        },
-        {
-          label: t({ en: "Chat", zh: "聊天" }),
-          href: "/chat",
-        },
-        {
           label: t({ en: "Features", zh: "特点" }),
-          href: "#introduction",
+          href: "/about",
         },
         {
           label: t({ en: "Pricing", zh: "定价" }),
-          href: "#pricing",
-        },
-        {
-          label: t({ en: "More Features", zh: "更多功能" }),
-          children: [
-            {
-              label: t({ en: "Blog", zh: "博客" }),
-              href: "/blog",
-            },
-            {
-              label: t({ en: "Roadmap", zh: "路线图" }),
-              href: "/roadmap",
-            },
-            {
-              label: t({ en: "Changelog", zh: "更新日志" }),
-              href: "/changelog",
-            },
-          ],
+          href: "/#pricing",
         },
       ] as const,
     },
     footer: {
       display: true,
-      companyName: "VibeAny",
+      companyName: "长沙涛澜启飞科技有限公司",
+      icp: "京ICP备XXXXXXXX号-1",
       scrollToTop: t({ en: "Back to Top", zh: "返回顶部" }),
       sections: [
         {
-          title: t({ en: "About", zh: "关于" }),
+          title: t({ en: "Services", zh: "服务" }),
           links: [
-            { label: t({ en: "About Us", zh: "关于我们" }), href: "/about" },
-            { label: t({ en: "Works", zh: "作品" }), href: "/works" },
-            { label: t({ en: "Pricing", zh: "定价" }), href: "/pricing" },
-          ],
-        },
-        {
-          title: t({ en: "Features", zh: "功能" }),
-          links: [
-            { label: t({ en: "Documentation", zh: "文档" }), href: "/docs" },
-            { label: t({ en: "Roadmap", zh: "路线图" }), href: "/roadmap" },
-            { label: t({ en: "Dashboard", zh: "控制台" }), href: "/dashboard" },
-          ],
-        },
-        {
-          title: t({ en: "Products", zh: "产品" }),
-          links: [
-            { label: t({ en: "AI Chat", zh: "AI 对话" }), href: "/chat" },
-            { label: t({ en: "Templates", zh: "模板" }), href: "/templates" },
-            { label: t({ en: "Components", zh: "组件" }), href: "/components" },
-          ],
-        },
-        {
-          title: t({ en: "Resources", zh: "资源" }),
-          links: [
-            { label: t({ en: "Changelog", zh: "更新日志" }), href: "/changelog" },
-            { label: t({ en: "Blog", zh: "博客" }), href: "/blog" },
-            { label: t({ en: "Community", zh: "社区" }), href: "/community" },
+            { label: t({ en: "Mini Program", zh: "小程序开发" }), href: "/#services" },
+            { label: t({ en: "H5", zh: "H5 开发" }), href: "/#services" },
+            { label: t({ en: "App", zh: "App 开发" }), href: "/#services" },
+            { label: t({ en: "PC Website", zh: "PC 网站" }), href: "/#services" },
+            { label: t({ en: "Consulting", zh: "技术咨询" }), href: "/#services" },
           ],
         },
         {
           title: t({ en: "Company", zh: "公司" }),
           links: [
+            { label: t({ en: "About Us", zh: "关于我们" }), href: "/about" },
             { label: t({ en: "Contact", zh: "联系我们" }), href: "/contact" },
-            { label: t({ en: "Terms", zh: "服务条款" }), href: "/terms" },
-            { label: t({ en: "Privacy", zh: "隐私政策" }), href: "/privacy" },
+          ],
+        },
+        {
+          title: t({ en: "Legal", zh: "法律" }),
+          links: [
+            { label: t({ en: "Terms of Service", zh: "服务条款" }), href: "/legal/terms" },
+            { label: t({ en: "Privacy Policy", zh: "隐私政策" }), href: "/legal/privacy" },
           ],
         },
       ],

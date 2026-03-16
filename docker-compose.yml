@@ -1,0 +1,16 @@
+services:
+  app:
+    image: ccr.ccs.tencentyun.com/skyapi/byteorigin:latest
+    container_name: byteorigin-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://user_8mPDPr:password_bPCSRz@150.158.2.79:5432/byteorigin
+      BETTER_AUTH_SECRET: yKmzqt7OU7V7mOIfqZn8rGBZ/MlDfjdUP1FGy099eeAQ=t
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  postgres_data:

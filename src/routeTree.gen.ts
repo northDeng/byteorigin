@@ -20,6 +20,7 @@ import { Route as ApiAdminRouteRouteImport } from './routes/api/admin/route'
 import { Route as Char123LocaleChar125LoginIndexRouteImport } from './routes/{-$locale}/login/index'
 import { Route as ApiChatIndexRouteImport } from './routes/api/chat/index'
 import { Route as Char123LocaleChar125DocsSplatRouteImport } from './routes/{-$locale}/docs/$'
+import { Route as ApiPaymentDepositCheckoutRouteImport } from './routes/api/payment/deposit-checkout'
 import { Route as ApiPaymentCreditCheckoutRouteImport } from './routes/api/payment/credit-checkout'
 import { Route as ApiPaymentCheckoutRouteImport } from './routes/api/payment/checkout'
 import { Route as ApiFileUploadRouteImport } from './routes/api/file/upload'
@@ -43,13 +44,17 @@ import { Route as Char123LocaleChar125MainAdminConfigRouteImport } from './route
 import { Route as Char123LocaleChar125MainAdminAiConfigRouteImport } from './routes/{-$locale}/_main/admin/ai-config'
 import { Route as Char123LocaleChar125MainLandingWaitlistRouteImport } from './routes/{-$locale}/_main/_landing/waitlist'
 import { Route as Char123LocaleChar125MainLandingRoadmapRouteImport } from './routes/{-$locale}/_main/_landing/roadmap'
+import { Route as Char123LocaleChar125MainLandingDepositRouteImport } from './routes/{-$locale}/_main/_landing/deposit'
+import { Route as Char123LocaleChar125MainLandingContactRouteImport } from './routes/{-$locale}/_main/_landing/contact'
 import { Route as Char123LocaleChar125MainLandingChatRouteImport } from './routes/{-$locale}/_main/_landing/chat'
 import { Route as Char123LocaleChar125MainLandingChangelogRouteImport } from './routes/{-$locale}/_main/_landing/changelog'
+import { Route as Char123LocaleChar125MainLandingAboutRouteImport } from './routes/{-$locale}/_main/_landing/about'
 import { Route as ApiPaymentWebhookProviderRouteImport } from './routes/api/payment/webhook.$provider'
 import { Route as ApiPaymentSubscriptionCancelRouteImport } from './routes/api/payment/subscription/cancel'
 import { Route as ApiAdminUsersIdRouteImport } from './routes/api/admin/users/$id'
 import { Route as Char123LocaleChar125MainLandingBlogIndexRouteImport } from './routes/{-$locale}/_main/_landing/blog/index'
 import { Route as Char123LocaleChar125MainLandingLegalSlugRouteImport } from './routes/{-$locale}/_main/_landing/legal.$slug'
+import { Route as Char123LocaleChar125MainLandingDepositSuccessRouteImport } from './routes/{-$locale}/_main/_landing/deposit/success'
 import { Route as Char123LocaleChar125MainLandingBlogSlugRouteImport } from './routes/{-$locale}/_main/_landing/blog/$slug'
 import { Route as ApiAdminUsersIdRolesRouteImport } from './routes/api/admin/users/$id/roles'
 import { Route as ApiAdminUsersIdCreditsRouteImport } from './routes/api/admin/users/$id/credits'
@@ -114,6 +119,12 @@ const Char123LocaleChar125DocsSplatRoute =
     id: '/$',
     path: '/$',
     getParentRoute: () => Char123LocaleChar125DocsRouteRoute,
+  } as any)
+const ApiPaymentDepositCheckoutRoute =
+  ApiPaymentDepositCheckoutRouteImport.update({
+    id: '/api/payment/deposit-checkout',
+    path: '/api/payment/deposit-checkout',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ApiPaymentCreditCheckoutRoute =
   ApiPaymentCreditCheckoutRouteImport.update({
@@ -242,6 +253,18 @@ const Char123LocaleChar125MainLandingRoadmapRoute =
     path: '/roadmap',
     getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
   } as any)
+const Char123LocaleChar125MainLandingDepositRoute =
+  Char123LocaleChar125MainLandingDepositRouteImport.update({
+    id: '/deposit',
+    path: '/deposit',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
+const Char123LocaleChar125MainLandingContactRoute =
+  Char123LocaleChar125MainLandingContactRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
 const Char123LocaleChar125MainLandingChatRoute =
   Char123LocaleChar125MainLandingChatRouteImport.update({
     id: '/chat',
@@ -252,6 +275,12 @@ const Char123LocaleChar125MainLandingChangelogRoute =
   Char123LocaleChar125MainLandingChangelogRouteImport.update({
     id: '/changelog',
     path: '/changelog',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
+const Char123LocaleChar125MainLandingAboutRoute =
+  Char123LocaleChar125MainLandingAboutRouteImport.update({
+    id: '/about',
+    path: '/about',
     getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
   } as any)
 const ApiPaymentWebhookProviderRoute =
@@ -282,6 +311,12 @@ const Char123LocaleChar125MainLandingLegalSlugRoute =
     id: '/legal/$slug',
     path: '/legal/$slug',
     getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
+const Char123LocaleChar125MainLandingDepositSuccessRoute =
+  Char123LocaleChar125MainLandingDepositSuccessRouteImport.update({
+    id: '/success',
+    path: '/success',
+    getParentRoute: () => Char123LocaleChar125MainLandingDepositRoute,
   } as any)
 const Char123LocaleChar125MainLandingBlogSlugRoute =
   Char123LocaleChar125MainLandingBlogSlugRouteImport.update({
@@ -325,14 +360,18 @@ export interface FileRoutesByFullPath {
   '/api/file/upload': typeof ApiFileUploadRoute
   '/api/payment/checkout': typeof ApiPaymentCheckoutRoute
   '/api/payment/credit-checkout': typeof ApiPaymentCreditCheckoutRoute
+  '/api/payment/deposit-checkout': typeof ApiPaymentDepositCheckoutRoute
   '/{-$locale}/docs/$': typeof Char123LocaleChar125DocsSplatRoute
   '/api/chat/': typeof ApiChatIndexRoute
   '/{-$locale}/login/': typeof Char123LocaleChar125LoginIndexRoute
   '/api/admin/users/$id': typeof ApiAdminUsersIdRouteWithChildren
   '/api/payment/subscription/cancel': typeof ApiPaymentSubscriptionCancelRoute
   '/api/payment/webhook/$provider': typeof ApiPaymentWebhookProviderRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125MainLandingAboutRoute
   '/{-$locale}/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/chat': typeof Char123LocaleChar125MainLandingChatRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125MainLandingContactRoute
+  '/{-$locale}/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -347,6 +386,7 @@ export interface FileRoutesByFullPath {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/blog/': typeof Char123LocaleChar125MainLandingBlogIndexRoute
 }
@@ -369,14 +409,18 @@ export interface FileRoutesByTo {
   '/api/file/upload': typeof ApiFileUploadRoute
   '/api/payment/checkout': typeof ApiPaymentCheckoutRoute
   '/api/payment/credit-checkout': typeof ApiPaymentCreditCheckoutRoute
+  '/api/payment/deposit-checkout': typeof ApiPaymentDepositCheckoutRoute
   '/{-$locale}/docs/$': typeof Char123LocaleChar125DocsSplatRoute
   '/api/chat': typeof ApiChatIndexRoute
   '/{-$locale}/login': typeof Char123LocaleChar125LoginIndexRoute
   '/api/admin/users/$id': typeof ApiAdminUsersIdRouteWithChildren
   '/api/payment/subscription/cancel': typeof ApiPaymentSubscriptionCancelRoute
   '/api/payment/webhook/$provider': typeof ApiPaymentWebhookProviderRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125MainLandingAboutRoute
   '/{-$locale}/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/chat': typeof Char123LocaleChar125MainChatIndexRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125MainLandingContactRoute
+  '/{-$locale}/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -389,6 +433,7 @@ export interface FileRoutesByTo {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/blog': typeof Char123LocaleChar125MainLandingBlogIndexRoute
 }
@@ -415,14 +460,18 @@ export interface FileRoutesById {
   '/api/file/upload': typeof ApiFileUploadRoute
   '/api/payment/checkout': typeof ApiPaymentCheckoutRoute
   '/api/payment/credit-checkout': typeof ApiPaymentCreditCheckoutRoute
+  '/api/payment/deposit-checkout': typeof ApiPaymentDepositCheckoutRoute
   '/{-$locale}/docs/$': typeof Char123LocaleChar125DocsSplatRoute
   '/api/chat/': typeof ApiChatIndexRoute
   '/{-$locale}/login/': typeof Char123LocaleChar125LoginIndexRoute
   '/api/admin/users/$id': typeof ApiAdminUsersIdRouteWithChildren
   '/api/payment/subscription/cancel': typeof ApiPaymentSubscriptionCancelRoute
   '/api/payment/webhook/$provider': typeof ApiPaymentWebhookProviderRoute
+  '/{-$locale}/_main/_landing/about': typeof Char123LocaleChar125MainLandingAboutRoute
   '/{-$locale}/_main/_landing/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/_main/_landing/chat': typeof Char123LocaleChar125MainLandingChatRoute
+  '/{-$locale}/_main/_landing/contact': typeof Char123LocaleChar125MainLandingContactRoute
+  '/{-$locale}/_main/_landing/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/_main/_landing/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/_main/_landing/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/_main/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -437,6 +486,7 @@ export interface FileRoutesById {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/_main/_landing/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/_main/_landing/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/_main/_landing/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/_main/_landing/blog/': typeof Char123LocaleChar125MainLandingBlogIndexRoute
 }
@@ -462,14 +512,18 @@ export interface FileRouteTypes {
     | '/api/file/upload'
     | '/api/payment/checkout'
     | '/api/payment/credit-checkout'
+    | '/api/payment/deposit-checkout'
     | '/{-$locale}/docs/$'
     | '/api/chat/'
     | '/{-$locale}/login/'
     | '/api/admin/users/$id'
     | '/api/payment/subscription/cancel'
     | '/api/payment/webhook/$provider'
+    | '/{-$locale}/about'
     | '/{-$locale}/changelog'
     | '/{-$locale}/chat'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/deposit'
     | '/{-$locale}/roadmap'
     | '/{-$locale}/waitlist'
     | '/{-$locale}/admin/ai-config'
@@ -484,6 +538,7 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/blog/$slug'
+    | '/{-$locale}/deposit/success'
     | '/{-$locale}/legal/$slug'
     | '/{-$locale}/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -506,14 +561,18 @@ export interface FileRouteTypes {
     | '/api/file/upload'
     | '/api/payment/checkout'
     | '/api/payment/credit-checkout'
+    | '/api/payment/deposit-checkout'
     | '/{-$locale}/docs/$'
     | '/api/chat'
     | '/{-$locale}/login'
     | '/api/admin/users/$id'
     | '/api/payment/subscription/cancel'
     | '/api/payment/webhook/$provider'
+    | '/{-$locale}/about'
     | '/{-$locale}/changelog'
     | '/{-$locale}/chat'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/deposit'
     | '/{-$locale}/roadmap'
     | '/{-$locale}/waitlist'
     | '/{-$locale}/admin/ai-config'
@@ -526,6 +585,7 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/blog/$slug'
+    | '/{-$locale}/deposit/success'
     | '/{-$locale}/legal/$slug'
     | '/{-$locale}/blog'
   id:
@@ -551,14 +611,18 @@ export interface FileRouteTypes {
     | '/api/file/upload'
     | '/api/payment/checkout'
     | '/api/payment/credit-checkout'
+    | '/api/payment/deposit-checkout'
     | '/{-$locale}/docs/$'
     | '/api/chat/'
     | '/{-$locale}/login/'
     | '/api/admin/users/$id'
     | '/api/payment/subscription/cancel'
     | '/api/payment/webhook/$provider'
+    | '/{-$locale}/_main/_landing/about'
     | '/{-$locale}/_main/_landing/changelog'
     | '/{-$locale}/_main/_landing/chat'
+    | '/{-$locale}/_main/_landing/contact'
+    | '/{-$locale}/_main/_landing/deposit'
     | '/{-$locale}/_main/_landing/roadmap'
     | '/{-$locale}/_main/_landing/waitlist'
     | '/{-$locale}/_main/admin/ai-config'
@@ -573,6 +637,7 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/_main/_landing/blog/$slug'
+    | '/{-$locale}/_main/_landing/deposit/success'
     | '/{-$locale}/_main/_landing/legal/$slug'
     | '/{-$locale}/_main/_landing/blog/'
   fileRoutesById: FileRoutesById
@@ -588,6 +653,7 @@ export interface RootRouteChildren {
   ApiFileUploadRoute: typeof ApiFileUploadRoute
   ApiPaymentCheckoutRoute: typeof ApiPaymentCheckoutRoute
   ApiPaymentCreditCheckoutRoute: typeof ApiPaymentCreditCheckoutRoute
+  ApiPaymentDepositCheckoutRoute: typeof ApiPaymentDepositCheckoutRoute
   ApiChatIndexRoute: typeof ApiChatIndexRoute
   ApiPaymentSubscriptionCancelRoute: typeof ApiPaymentSubscriptionCancelRoute
   ApiPaymentWebhookProviderRoute: typeof ApiPaymentWebhookProviderRoute
@@ -671,6 +737,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/{-$locale}/docs/$'
       preLoaderRoute: typeof Char123LocaleChar125DocsSplatRouteImport
       parentRoute: typeof Char123LocaleChar125DocsRouteRoute
+    }
+    '/api/payment/deposit-checkout': {
+      id: '/api/payment/deposit-checkout'
+      path: '/api/payment/deposit-checkout'
+      fullPath: '/api/payment/deposit-checkout'
+      preLoaderRoute: typeof ApiPaymentDepositCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/payment/credit-checkout': {
       id: '/api/payment/credit-checkout'
@@ -833,6 +906,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125MainLandingRoadmapRouteImport
       parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
     }
+    '/{-$locale}/_main/_landing/deposit': {
+      id: '/{-$locale}/_main/_landing/deposit'
+      path: '/deposit'
+      fullPath: '/{-$locale}/deposit'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
+    }
+    '/{-$locale}/_main/_landing/contact': {
+      id: '/{-$locale}/_main/_landing/contact'
+      path: '/contact'
+      fullPath: '/{-$locale}/contact'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingContactRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
+    }
     '/{-$locale}/_main/_landing/chat': {
       id: '/{-$locale}/_main/_landing/chat'
       path: '/chat'
@@ -845,6 +932,13 @@ declare module '@tanstack/react-router' {
       path: '/changelog'
       fullPath: '/{-$locale}/changelog'
       preLoaderRoute: typeof Char123LocaleChar125MainLandingChangelogRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
+    }
+    '/{-$locale}/_main/_landing/about': {
+      id: '/{-$locale}/_main/_landing/about'
+      path: '/about'
+      fullPath: '/{-$locale}/about'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingAboutRouteImport
       parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
     }
     '/api/payment/webhook/$provider': {
@@ -882,6 +976,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125MainLandingLegalSlugRouteImport
       parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
     }
+    '/{-$locale}/_main/_landing/deposit/success': {
+      id: '/{-$locale}/_main/_landing/deposit/success'
+      path: '/success'
+      fullPath: '/{-$locale}/deposit/success'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositSuccessRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingDepositRoute
+    }
     '/{-$locale}/_main/_landing/blog/$slug': {
       id: '/{-$locale}/_main/_landing/blog/$slug'
       path: '/blog/$slug'
@@ -913,9 +1014,27 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface Char123LocaleChar125MainLandingDepositRouteChildren {
+  Char123LocaleChar125MainLandingDepositSuccessRoute: typeof Char123LocaleChar125MainLandingDepositSuccessRoute
+}
+
+const Char123LocaleChar125MainLandingDepositRouteChildren: Char123LocaleChar125MainLandingDepositRouteChildren =
+  {
+    Char123LocaleChar125MainLandingDepositSuccessRoute:
+      Char123LocaleChar125MainLandingDepositSuccessRoute,
+  }
+
+const Char123LocaleChar125MainLandingDepositRouteWithChildren =
+  Char123LocaleChar125MainLandingDepositRoute._addFileChildren(
+    Char123LocaleChar125MainLandingDepositRouteChildren,
+  )
+
 interface Char123LocaleChar125MainLandingRouteRouteChildren {
+  Char123LocaleChar125MainLandingAboutRoute: typeof Char123LocaleChar125MainLandingAboutRoute
   Char123LocaleChar125MainLandingChangelogRoute: typeof Char123LocaleChar125MainLandingChangelogRoute
   Char123LocaleChar125MainLandingChatRoute: typeof Char123LocaleChar125MainLandingChatRoute
+  Char123LocaleChar125MainLandingContactRoute: typeof Char123LocaleChar125MainLandingContactRoute
+  Char123LocaleChar125MainLandingDepositRoute: typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   Char123LocaleChar125MainLandingRoadmapRoute: typeof Char123LocaleChar125MainLandingRoadmapRoute
   Char123LocaleChar125MainLandingWaitlistRoute: typeof Char123LocaleChar125MainLandingWaitlistRoute
   Char123LocaleChar125MainLandingIndexRoute: typeof Char123LocaleChar125MainLandingIndexRoute
@@ -926,10 +1045,16 @@ interface Char123LocaleChar125MainLandingRouteRouteChildren {
 
 const Char123LocaleChar125MainLandingRouteRouteChildren: Char123LocaleChar125MainLandingRouteRouteChildren =
   {
+    Char123LocaleChar125MainLandingAboutRoute:
+      Char123LocaleChar125MainLandingAboutRoute,
     Char123LocaleChar125MainLandingChangelogRoute:
       Char123LocaleChar125MainLandingChangelogRoute,
     Char123LocaleChar125MainLandingChatRoute:
       Char123LocaleChar125MainLandingChatRoute,
+    Char123LocaleChar125MainLandingContactRoute:
+      Char123LocaleChar125MainLandingContactRoute,
+    Char123LocaleChar125MainLandingDepositRoute:
+      Char123LocaleChar125MainLandingDepositRouteWithChildren,
     Char123LocaleChar125MainLandingRoadmapRoute:
       Char123LocaleChar125MainLandingRoadmapRoute,
     Char123LocaleChar125MainLandingWaitlistRoute:
@@ -1097,6 +1222,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFileUploadRoute: ApiFileUploadRoute,
   ApiPaymentCheckoutRoute: ApiPaymentCheckoutRoute,
   ApiPaymentCreditCheckoutRoute: ApiPaymentCreditCheckoutRoute,
+  ApiPaymentDepositCheckoutRoute: ApiPaymentDepositCheckoutRoute,
   ApiChatIndexRoute: ApiChatIndexRoute,
   ApiPaymentSubscriptionCancelRoute: ApiPaymentSubscriptionCancelRoute,
   ApiPaymentWebhookProviderRoute: ApiPaymentWebhookProviderRoute,

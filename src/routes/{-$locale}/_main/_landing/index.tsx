@@ -9,6 +9,7 @@ import { Introduction } from "@/shared/components/landing/introduction"
 import { MediaCoverage } from "@/shared/components/landing/media"
 import PowerBy from "@/shared/components/landing/powerby"
 import { Pricing } from "@/shared/components/landing/pricing"
+import { Services } from "@/shared/components/landing/services"
 import { HorizontalShowcase } from "@/shared/components/landing/showcase"
 import { Testimonials } from "@/shared/components/landing/testimonials"
 
@@ -25,12 +26,7 @@ function RouteComponent() {
       <Hero />
       {landing.powerBy.display && <PowerBy />}
       {landing.threeBenefits.display && <ThreeBenefits />}
-      {landing.introduction.display && <Introduction />}
-      {landing.features.display && <Features />}
-      {landing.pricing.display && <Pricing />}
-      {landing.horizontalShowcase.display && <HorizontalShowcase />}
-      {landing.userTestimonials.display && <Testimonials />}
-      {landing.mediaCoverage.display && <MediaCoverage />}
+      {landing.services?.display && <Services />}
       {landing.faq.display && <Faq />}
       {landing.cta.display && <Cta />}
     </div>

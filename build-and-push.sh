@@ -11,7 +11,7 @@ FULL_IMAGE="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}:${TAG}"
 echo "==> 构建镜像: ${FULL_IMAGE} (linux/amd64)"
 docker buildx build \
   --platform linux/amd64 \
-  --build-arg VITE_APP_URL="${VITE_APP_URL:-https://byteorigin.com}" \
+  --build-arg VITE_APP_URL="https://www.byteorigin.net" \
   --build-arg VITE_ENV=production \
   --build-arg VITE_CURRENCY=CNY \
   --push \

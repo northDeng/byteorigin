@@ -42,7 +42,7 @@ function createAuth() {
   }
 
   return betterAuth({
-    baseURL: import.meta.env.VITE_APP_URL || "http://localhost:3377",
+    baseURL: process.env.VITE_APP_URL || "http://localhost:3377",
     database: drizzleAdapter(db, { provider: "pg" }),
     plugins: [
       ...(isCaptchaEnabled

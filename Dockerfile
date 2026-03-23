@@ -26,6 +26,14 @@ RUN --mount=type=cache,target=/root/.npm \
 
 COPY . .
 
+# Declare build-time env vars passed via --build-arg
+ARG VITE_APP_URL
+ARG VITE_ENV
+ARG VITE_CURRENCY
+ENV VITE_APP_URL=$VITE_APP_URL
+ENV VITE_ENV=$VITE_ENV
+ENV VITE_CURRENCY=$VITE_CURRENCY
+
 # Build with cache mount for .vinxi artifacts
 RUN --mount=type=cache,target=/app/.vinxi/cache \
   if [ -f package-lock.json ]; then \
@@ -48,6 +56,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=0.0.0.0
+ARG VITE_APP_URL
+ENV VITE_APP_URL=$VITE_APP_URL
 
 COPY --from=builder /app/.output ./
 

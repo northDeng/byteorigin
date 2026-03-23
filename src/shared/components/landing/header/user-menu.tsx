@@ -1,5 +1,5 @@
 import { getRouteApi } from "@tanstack/react-router"
-import { CoinsIcon, LogOutIcon, UserIcon } from "lucide-react"
+import { CoinsIcon, LogOutIcon } from "lucide-react"
 import { useState } from "react"
 import { useIntlayer } from "react-intlayer"
 import { LocalizedLink } from "@/shared/components/locale/localized-link"
@@ -122,21 +122,6 @@ export function UserMenu() {
               <DropdownMenuSeparator />
             </>
           )}
-
-          <DropdownMenuGroup>
-            <DropdownMenuItem
-              onClick={() => {
-                setDefaultPanel(undefined)
-                setIsOpenUserDashboard(true)
-              }}
-              className="cursor-pointer"
-            >
-              <UserIcon className="size-4" />
-              <span>{userMenu.profile.value}</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-
-          <DropdownMenuSeparator />
 
           <DropdownMenuItem
             variant="destructive"

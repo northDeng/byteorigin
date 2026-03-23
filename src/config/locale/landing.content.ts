@@ -709,7 +709,7 @@ export default {
     footer: {
       display: true,
       companyName: "长沙涛澜启飞科技有限公司",
-      icp: "京ICP备XXXXXXXX号-1",
+      icp: "湘ICP备2026008914号-1",
       scrollToTop: t({ en: "Back to Top", zh: "返回顶部" }),
       sections: [
         {

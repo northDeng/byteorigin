@@ -44,7 +44,6 @@ import { Route as Char123LocaleChar125MainAdminConfigRouteImport } from './route
 import { Route as Char123LocaleChar125MainAdminAiConfigRouteImport } from './routes/{-$locale}/_main/admin/ai-config'
 import { Route as Char123LocaleChar125MainLandingWaitlistRouteImport } from './routes/{-$locale}/_main/_landing/waitlist'
 import { Route as Char123LocaleChar125MainLandingRoadmapRouteImport } from './routes/{-$locale}/_main/_landing/roadmap'
-import { Route as Char123LocaleChar125MainLandingDepositRouteImport } from './routes/{-$locale}/_main/_landing/deposit'
 import { Route as Char123LocaleChar125MainLandingContactRouteImport } from './routes/{-$locale}/_main/_landing/contact'
 import { Route as Char123LocaleChar125MainLandingChatRouteImport } from './routes/{-$locale}/_main/_landing/chat'
 import { Route as Char123LocaleChar125MainLandingChangelogRouteImport } from './routes/{-$locale}/_main/_landing/changelog'
@@ -52,9 +51,11 @@ import { Route as Char123LocaleChar125MainLandingAboutRouteImport } from './rout
 import { Route as ApiPaymentWebhookProviderRouteImport } from './routes/api/payment/webhook.$provider'
 import { Route as ApiPaymentSubscriptionCancelRouteImport } from './routes/api/payment/subscription/cancel'
 import { Route as ApiAdminUsersIdRouteImport } from './routes/api/admin/users/$id'
+import { Route as Char123LocaleChar125MainLandingDepositIndexRouteImport } from './routes/{-$locale}/_main/_landing/deposit/index'
 import { Route as Char123LocaleChar125MainLandingBlogIndexRouteImport } from './routes/{-$locale}/_main/_landing/blog/index'
 import { Route as Char123LocaleChar125MainLandingLegalSlugRouteImport } from './routes/{-$locale}/_main/_landing/legal.$slug'
 import { Route as Char123LocaleChar125MainLandingDepositSuccessRouteImport } from './routes/{-$locale}/_main/_landing/deposit/success'
+import { Route as Char123LocaleChar125MainLandingDepositServiceTypeRouteImport } from './routes/{-$locale}/_main/_landing/deposit/$serviceType'
 import { Route as Char123LocaleChar125MainLandingBlogSlugRouteImport } from './routes/{-$locale}/_main/_landing/blog/$slug'
 import { Route as ApiAdminUsersIdRolesRouteImport } from './routes/api/admin/users/$id/roles'
 import { Route as ApiAdminUsersIdCreditsRouteImport } from './routes/api/admin/users/$id/credits'
@@ -253,12 +254,6 @@ const Char123LocaleChar125MainLandingRoadmapRoute =
     path: '/roadmap',
     getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
   } as any)
-const Char123LocaleChar125MainLandingDepositRoute =
-  Char123LocaleChar125MainLandingDepositRouteImport.update({
-    id: '/deposit',
-    path: '/deposit',
-    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
-  } as any)
 const Char123LocaleChar125MainLandingContactRoute =
   Char123LocaleChar125MainLandingContactRouteImport.update({
     id: '/contact',
@@ -300,6 +295,12 @@ const ApiAdminUsersIdRoute = ApiAdminUsersIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => ApiAdminUsersRoute,
 } as any)
+const Char123LocaleChar125MainLandingDepositIndexRoute =
+  Char123LocaleChar125MainLandingDepositIndexRouteImport.update({
+    id: '/deposit/',
+    path: '/deposit/',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
 const Char123LocaleChar125MainLandingBlogIndexRoute =
   Char123LocaleChar125MainLandingBlogIndexRouteImport.update({
     id: '/blog/',
@@ -314,9 +315,15 @@ const Char123LocaleChar125MainLandingLegalSlugRoute =
   } as any)
 const Char123LocaleChar125MainLandingDepositSuccessRoute =
   Char123LocaleChar125MainLandingDepositSuccessRouteImport.update({
-    id: '/success',
-    path: '/success',
-    getParentRoute: () => Char123LocaleChar125MainLandingDepositRoute,
+    id: '/deposit/success',
+    path: '/deposit/success',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
+  } as any)
+const Char123LocaleChar125MainLandingDepositServiceTypeRoute =
+  Char123LocaleChar125MainLandingDepositServiceTypeRouteImport.update({
+    id: '/deposit/$serviceType',
+    path: '/deposit/$serviceType',
+    getParentRoute: () => Char123LocaleChar125MainLandingRouteRoute,
   } as any)
 const Char123LocaleChar125MainLandingBlogSlugRoute =
   Char123LocaleChar125MainLandingBlogSlugRouteImport.update({
@@ -371,7 +378,6 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/chat': typeof Char123LocaleChar125MainLandingChatRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125MainLandingContactRoute
-  '/{-$locale}/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -386,9 +392,11 @@ export interface FileRoutesByFullPath {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/deposit/$serviceType': typeof Char123LocaleChar125MainLandingDepositServiceTypeRoute
   '/{-$locale}/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/blog/': typeof Char123LocaleChar125MainLandingBlogIndexRoute
+  '/{-$locale}/deposit/': typeof Char123LocaleChar125MainLandingDepositIndexRoute
 }
 export interface FileRoutesByTo {
   '/{-$locale}': typeof Char123LocaleChar125MainLandingIndexRoute
@@ -420,7 +428,6 @@ export interface FileRoutesByTo {
   '/{-$locale}/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/chat': typeof Char123LocaleChar125MainChatIndexRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125MainLandingContactRoute
-  '/{-$locale}/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -433,9 +440,11 @@ export interface FileRoutesByTo {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/deposit/$serviceType': typeof Char123LocaleChar125MainLandingDepositServiceTypeRoute
   '/{-$locale}/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/blog': typeof Char123LocaleChar125MainLandingBlogIndexRoute
+  '/{-$locale}/deposit': typeof Char123LocaleChar125MainLandingDepositIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -471,7 +480,6 @@ export interface FileRoutesById {
   '/{-$locale}/_main/_landing/changelog': typeof Char123LocaleChar125MainLandingChangelogRoute
   '/{-$locale}/_main/_landing/chat': typeof Char123LocaleChar125MainLandingChatRoute
   '/{-$locale}/_main/_landing/contact': typeof Char123LocaleChar125MainLandingContactRoute
-  '/{-$locale}/_main/_landing/deposit': typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   '/{-$locale}/_main/_landing/roadmap': typeof Char123LocaleChar125MainLandingRoadmapRoute
   '/{-$locale}/_main/_landing/waitlist': typeof Char123LocaleChar125MainLandingWaitlistRoute
   '/{-$locale}/_main/admin/ai-config': typeof Char123LocaleChar125MainAdminAiConfigRoute
@@ -486,9 +494,11 @@ export interface FileRoutesById {
   '/api/admin/users/$id/credits': typeof ApiAdminUsersIdCreditsRoute
   '/api/admin/users/$id/roles': typeof ApiAdminUsersIdRolesRoute
   '/{-$locale}/_main/_landing/blog/$slug': typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  '/{-$locale}/_main/_landing/deposit/$serviceType': typeof Char123LocaleChar125MainLandingDepositServiceTypeRoute
   '/{-$locale}/_main/_landing/deposit/success': typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   '/{-$locale}/_main/_landing/legal/$slug': typeof Char123LocaleChar125MainLandingLegalSlugRoute
   '/{-$locale}/_main/_landing/blog/': typeof Char123LocaleChar125MainLandingBlogIndexRoute
+  '/{-$locale}/_main/_landing/deposit/': typeof Char123LocaleChar125MainLandingDepositIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -523,7 +533,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/changelog'
     | '/{-$locale}/chat'
     | '/{-$locale}/contact'
-    | '/{-$locale}/deposit'
     | '/{-$locale}/roadmap'
     | '/{-$locale}/waitlist'
     | '/{-$locale}/admin/ai-config'
@@ -538,9 +547,11 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/blog/$slug'
+    | '/{-$locale}/deposit/$serviceType'
     | '/{-$locale}/deposit/success'
     | '/{-$locale}/legal/$slug'
     | '/{-$locale}/blog/'
+    | '/{-$locale}/deposit/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/{-$locale}'
@@ -572,7 +583,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/changelog'
     | '/{-$locale}/chat'
     | '/{-$locale}/contact'
-    | '/{-$locale}/deposit'
     | '/{-$locale}/roadmap'
     | '/{-$locale}/waitlist'
     | '/{-$locale}/admin/ai-config'
@@ -585,9 +595,11 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/blog/$slug'
+    | '/{-$locale}/deposit/$serviceType'
     | '/{-$locale}/deposit/success'
     | '/{-$locale}/legal/$slug'
     | '/{-$locale}/blog'
+    | '/{-$locale}/deposit'
   id:
     | '__root__'
     | '/{-$locale}'
@@ -622,7 +634,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/_main/_landing/changelog'
     | '/{-$locale}/_main/_landing/chat'
     | '/{-$locale}/_main/_landing/contact'
-    | '/{-$locale}/_main/_landing/deposit'
     | '/{-$locale}/_main/_landing/roadmap'
     | '/{-$locale}/_main/_landing/waitlist'
     | '/{-$locale}/_main/admin/ai-config'
@@ -637,9 +648,11 @@ export interface FileRouteTypes {
     | '/api/admin/users/$id/credits'
     | '/api/admin/users/$id/roles'
     | '/{-$locale}/_main/_landing/blog/$slug'
+    | '/{-$locale}/_main/_landing/deposit/$serviceType'
     | '/{-$locale}/_main/_landing/deposit/success'
     | '/{-$locale}/_main/_landing/legal/$slug'
     | '/{-$locale}/_main/_landing/blog/'
+    | '/{-$locale}/_main/_landing/deposit/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -906,13 +919,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125MainLandingRoadmapRouteImport
       parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
     }
-    '/{-$locale}/_main/_landing/deposit': {
-      id: '/{-$locale}/_main/_landing/deposit'
-      path: '/deposit'
-      fullPath: '/{-$locale}/deposit'
-      preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositRouteImport
-      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
-    }
     '/{-$locale}/_main/_landing/contact': {
       id: '/{-$locale}/_main/_landing/contact'
       path: '/contact'
@@ -962,6 +968,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAdminUsersIdRouteImport
       parentRoute: typeof ApiAdminUsersRoute
     }
+    '/{-$locale}/_main/_landing/deposit/': {
+      id: '/{-$locale}/_main/_landing/deposit/'
+      path: '/deposit'
+      fullPath: '/{-$locale}/deposit/'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
+    }
     '/{-$locale}/_main/_landing/blog/': {
       id: '/{-$locale}/_main/_landing/blog/'
       path: '/blog'
@@ -978,10 +991,17 @@ declare module '@tanstack/react-router' {
     }
     '/{-$locale}/_main/_landing/deposit/success': {
       id: '/{-$locale}/_main/_landing/deposit/success'
-      path: '/success'
+      path: '/deposit/success'
       fullPath: '/{-$locale}/deposit/success'
       preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositSuccessRouteImport
-      parentRoute: typeof Char123LocaleChar125MainLandingDepositRoute
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
+    }
+    '/{-$locale}/_main/_landing/deposit/$serviceType': {
+      id: '/{-$locale}/_main/_landing/deposit/$serviceType'
+      path: '/deposit/$serviceType'
+      fullPath: '/{-$locale}/deposit/$serviceType'
+      preLoaderRoute: typeof Char123LocaleChar125MainLandingDepositServiceTypeRouteImport
+      parentRoute: typeof Char123LocaleChar125MainLandingRouteRoute
     }
     '/{-$locale}/_main/_landing/blog/$slug': {
       id: '/{-$locale}/_main/_landing/blog/$slug'
@@ -1014,33 +1034,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface Char123LocaleChar125MainLandingDepositRouteChildren {
-  Char123LocaleChar125MainLandingDepositSuccessRoute: typeof Char123LocaleChar125MainLandingDepositSuccessRoute
-}
-
-const Char123LocaleChar125MainLandingDepositRouteChildren: Char123LocaleChar125MainLandingDepositRouteChildren =
-  {
-    Char123LocaleChar125MainLandingDepositSuccessRoute:
-      Char123LocaleChar125MainLandingDepositSuccessRoute,
-  }
-
-const Char123LocaleChar125MainLandingDepositRouteWithChildren =
-  Char123LocaleChar125MainLandingDepositRoute._addFileChildren(
-    Char123LocaleChar125MainLandingDepositRouteChildren,
-  )
-
 interface Char123LocaleChar125MainLandingRouteRouteChildren {
   Char123LocaleChar125MainLandingAboutRoute: typeof Char123LocaleChar125MainLandingAboutRoute
   Char123LocaleChar125MainLandingChangelogRoute: typeof Char123LocaleChar125MainLandingChangelogRoute
   Char123LocaleChar125MainLandingChatRoute: typeof Char123LocaleChar125MainLandingChatRoute
   Char123LocaleChar125MainLandingContactRoute: typeof Char123LocaleChar125MainLandingContactRoute
-  Char123LocaleChar125MainLandingDepositRoute: typeof Char123LocaleChar125MainLandingDepositRouteWithChildren
   Char123LocaleChar125MainLandingRoadmapRoute: typeof Char123LocaleChar125MainLandingRoadmapRoute
   Char123LocaleChar125MainLandingWaitlistRoute: typeof Char123LocaleChar125MainLandingWaitlistRoute
   Char123LocaleChar125MainLandingIndexRoute: typeof Char123LocaleChar125MainLandingIndexRoute
   Char123LocaleChar125MainLandingBlogSlugRoute: typeof Char123LocaleChar125MainLandingBlogSlugRoute
+  Char123LocaleChar125MainLandingDepositServiceTypeRoute: typeof Char123LocaleChar125MainLandingDepositServiceTypeRoute
+  Char123LocaleChar125MainLandingDepositSuccessRoute: typeof Char123LocaleChar125MainLandingDepositSuccessRoute
   Char123LocaleChar125MainLandingLegalSlugRoute: typeof Char123LocaleChar125MainLandingLegalSlugRoute
   Char123LocaleChar125MainLandingBlogIndexRoute: typeof Char123LocaleChar125MainLandingBlogIndexRoute
+  Char123LocaleChar125MainLandingDepositIndexRoute: typeof Char123LocaleChar125MainLandingDepositIndexRoute
 }
 
 const Char123LocaleChar125MainLandingRouteRouteChildren: Char123LocaleChar125MainLandingRouteRouteChildren =
@@ -1053,8 +1060,6 @@ const Char123LocaleChar125MainLandingRouteRouteChildren: Char123LocaleChar125Mai
       Char123LocaleChar125MainLandingChatRoute,
     Char123LocaleChar125MainLandingContactRoute:
       Char123LocaleChar125MainLandingContactRoute,
-    Char123LocaleChar125MainLandingDepositRoute:
-      Char123LocaleChar125MainLandingDepositRouteWithChildren,
     Char123LocaleChar125MainLandingRoadmapRoute:
       Char123LocaleChar125MainLandingRoadmapRoute,
     Char123LocaleChar125MainLandingWaitlistRoute:
@@ -1063,10 +1068,16 @@ const Char123LocaleChar125MainLandingRouteRouteChildren: Char123LocaleChar125Mai
       Char123LocaleChar125MainLandingIndexRoute,
     Char123LocaleChar125MainLandingBlogSlugRoute:
       Char123LocaleChar125MainLandingBlogSlugRoute,
+    Char123LocaleChar125MainLandingDepositServiceTypeRoute:
+      Char123LocaleChar125MainLandingDepositServiceTypeRoute,
+    Char123LocaleChar125MainLandingDepositSuccessRoute:
+      Char123LocaleChar125MainLandingDepositSuccessRoute,
     Char123LocaleChar125MainLandingLegalSlugRoute:
       Char123LocaleChar125MainLandingLegalSlugRoute,
     Char123LocaleChar125MainLandingBlogIndexRoute:
       Char123LocaleChar125MainLandingBlogIndexRoute,
+    Char123LocaleChar125MainLandingDepositIndexRoute:
+      Char123LocaleChar125MainLandingDepositIndexRoute,
   }
 
 const Char123LocaleChar125MainLandingRouteRouteWithChildren =
